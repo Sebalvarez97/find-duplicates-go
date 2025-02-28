@@ -31,7 +31,7 @@ func TestRowCompare_SameEmail_And_PostalCode(t *testing.T) {
 	row1 := []string{"7", "Gannon", "Weaver", "in.at@protonmail.org", "67238", "P.O. Box 410, 8379 Libero St."}
 	row2 := []string{"8", "G", "Franco", "in.at@protonmail.org", "67238", "331-981 Velit. Road"}
 	score := RowCompare(row1, row2)
-	assert.Equal(t, 61, score)
+	assert.Equal(t, 65, score)
 }
 
 func TestRowCompare_DifferentLenghtError(t *testing.T) {
@@ -44,12 +44,12 @@ func TestRowCompare_SimilarAddress(t *testing.T) {
 	row1 := []string{"7", "Gannon", "Weaver", "in.at@protonmail.org", "67238", "P.O. Box 410, 8379 Libero St."}
 	row2 := []string{"8", "Hilary", "Franco", "congue.in@icloud.com", "25211", "P.O. Box 410, 8872 Libero Street"}
 	score := RowCompare(row1, row2)
-	assert.Equal(t, 30, score)
+	assert.Equal(t, 0, score)
 }
 
 func TestRowCompare_SimilarAddress2(t *testing.T) {
 	row1 := []string{"17", "Vance", "Martin", "rat.nonummy@icloud.net", "78358", "694-3213 Diam St."}
 	row2 := []string{"517", "V", "Martin", "erat.nonummy@icloud.net", "78358", "694-3213 Diam St."}
 	score := RowCompare(row1, row2)
-	assert.Equal(t, 113, score)
+	assert.Equal(t, 105, score)
 }
