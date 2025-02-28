@@ -13,7 +13,7 @@ var columnScoreWeights = map[string]int{
 	"name":      10,
 	"name1":     10,
 	"email":     50,
-	"postalZip": 1,
+	"postalZip": 5,
 	"address":   30,
 }
 
@@ -28,13 +28,16 @@ func RowCompare(row1, row2 []string) int {
 		column := GetColumnName(i)
 		weight := columnScoreWeights[column]
 
-		if strings.TrimSpace(value1) == strings.TrimSpace(value2) {
+		// Compare strings using JaroWinkler algorithm
+		jaro := JaroMatch(value1, value2)
+
+		value1 = strings.ToLower(value1)
+		value2 = strings.ToLower(value2)
+
+		if value1 == value2 {
 			score += weight
 			continue
 		}
-
-		// Compare strings using JaroWinkler algorithm
-		jaro := JaroMatch(value1, value2)
 
 		switch column {
 		case "contactID", "postalZip":
@@ -46,17 +49,16 @@ func RowCompare(row1, row2 []string) int {
 				score += weight
 			}
 			continue
-		case "email", "address":
-			if jaro > 88 {
-				difference := jaro - 88
-				score += weight + difference
+		case "email":
+			if jaro > 85 {
+				score += weight
 			}
 			continue
-		default:
-			// Check similarity using JaroWinkler
+		case "address":
 			if jaro > 96 {
 				score += weight
 			}
+			continue
 		}
 
 	}

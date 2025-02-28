@@ -51,19 +51,5 @@ func TestRowCompare_SimilarAddress2(t *testing.T) {
 	row1 := []string{"17", "Vance", "Martin", "rat.nonummy@icloud.net", "78358", "694-3213 Diam St."}
 	row2 := []string{"517", "V", "Martin", "erat.nonummy@icloud.net", "78358", "694-3213 Diam St."}
 	score := RowCompare(row1, row2)
-	assert.Equal(t, 101, score)
+	assert.Equal(t, 113, score)
 }
-
-// 3,Victor,Savage,orci@protonmail.net,82025,"P.O. Box 775, 8910 Arcu. Road"
-// 49,Griffith,Gamble,iaculis@hotmail.net,95661,"P.O. Box 762, 3220 Proin St."
-
-// 1,Ciara,French,mollis.lectus.pede@outlook.net,39746,449-6990 Tellus. Rd.
-// 338,Yetta,Sawyer,mollis.lectus@outlook.net,83803,600-401 Mi Ave
-
-// 502,C,Pacheco,nulla.eget@att.couk,76837,Ap #312-8611 Lacus. Ave
-// 2,Charles,Pacheco,nulla.eget@protonmail.couk,76837,Ap #312-8611 Lacus. Ave
-
-// 74,Tarik,Vincent,suspendisse@protonmail.org,13456,"P.O. Box 582, 5779 Ac Road"
-// 9,Gil,Briggs,pellentesque.tellus.sem@yahoo.net,78383,"P.O. Box 733, 2603 Nisi Road"
-// 3,Victor,Savage,orci@protonmail.net,82025,"P.O. Box 775, 8910 Arcu. Road"
-// 503,V,Savage,orci@att.net,82025,"P.O. Box 775, 8910 Arcu. Road"

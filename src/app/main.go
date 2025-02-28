@@ -8,7 +8,7 @@ import (
 )
 
 // Score scale
-// More than 100 its High
+// More than 90 its High
 // More than 50 its Medium
 // Less than 35 its Low
 
@@ -35,7 +35,7 @@ func main() {
 				if score > 50 {
 					accuracy = "Medium"
 				}
-				if score > 100 {
+				if score >= 90 {
 					accuracy = "High"
 				}
 				results = append(results, []string{row1[0], row2[0], accuracy})
