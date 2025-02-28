@@ -44,7 +44,7 @@ func TestRowCompare_SimilarAddress(t *testing.T) {
 	row1 := []string{"7", "Gannon", "Weaver", "in.at@protonmail.org", "67238", "P.O. Box 410, 8379 Libero St."}
 	row2 := []string{"8", "Hilary", "Franco", "congue.in@icloud.com", "25211", "P.O. Box 410, 8872 Libero Street"}
 	score := RowCompare(row1, row2)
-	assert.Equal(t, 0, score)
+	assert.Equal(t, 30, score)
 }
 
 func TestRowCompare_SimilarAddress2(t *testing.T) {

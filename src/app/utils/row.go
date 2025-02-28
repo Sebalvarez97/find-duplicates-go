@@ -55,7 +55,7 @@ func RowCompare(row1, row2 []string) int {
 			}
 			continue
 		case "address":
-			if jaro > 96 {
+			if jaro > 93 {
 				score += weight
 			}
 			continue
